@@ -28,12 +28,12 @@ function ProductsGroupList({
 
 	const intersectionRef = useRef(null);
 	const intersection = useIntersection(intersectionRef, {
-		root: null,
-		rootMargin: '0px',
-		threshold: 1,
+		threshold: 0.5,
 	});
 
 	useEffect(() => {
+		console.log(intersection?.isIntersecting);
+
 		if (intersection?.isIntersecting) {
 			setActiveCategoryId(categoryId);
 		}
@@ -56,7 +56,7 @@ function ProductsGroupList({
 						key={product.id}
 						id={product.id}
 						name={product.name}
-						image={product.image}
+						imageUrl={product.imageUrl}
 						price={product.items[0].price}
 					/>
 				))}

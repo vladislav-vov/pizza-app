@@ -10,3 +10,5 @@ export { default as RangeSlider } from './rangeSlider';
 export { default as ProductCard } from './productCard';
 export { default as ProductsGroupList } from './productsGroupList';
 export { default as SearchInput } from './searchInput';
+export { default as ProductImage } from './productImage';
+export { default as ChoosePizzaSize } from './choosePizzaSize';

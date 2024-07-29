@@ -9,21 +9,18 @@ interface Props {
 	id: number;
 	name: string;
 	price: number;
-	image: {
-		src: string;
-		alt: string;
-	};
+	imageUrl: string;
 }
 
-function ProductCard({ id, name, price, image }: Props) {
+function ProductCard({ id, name, price, imageUrl }: Props) {
 	return (
 		<div>
 			<Link href={`/product/${id}`}>
 				<div className="flex justify-center p-6 bg-secondary rounded-lg h-[260px]">
 					<img
 						className="w-[215px] h-[215px]"
-						src={image.src}
-						alt={image.alt}
+						src={imageUrl}
+						alt="Product"
 					/>
 				</div>
 				<Title
