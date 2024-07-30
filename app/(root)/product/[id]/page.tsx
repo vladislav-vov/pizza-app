@@ -1,7 +1,7 @@
 import prisma from '@/prisma/prismaCleint';
 import { notFound } from 'next/navigation';
 
-import { ProductImage, Title, ChoosePizzaSize } from '@/components/shared';
+import { PizzaImage, Title, PizzaVariantsList } from '@/components/shared';
 
 interface ProductPageProps {
 	params: { id: string };
@@ -17,7 +17,7 @@ async function ProductPage({ params: { id } }: ProductPageProps) {
 	return (
 		<div className="flex flex-col my-10">
 			<div className="flex flex-1">
-				<ProductImage
+				<PizzaImage
 					imageUrl={product.imageUrl}
 					size={30}
 				/>
@@ -28,8 +28,8 @@ async function ProductPage({ params: { id } }: ProductPageProps) {
 						{product.name}
 					</Title>
 					<p className="text-gray-400">Something</p>
-					<ChoosePizzaSize
-						selectedValue="1"
+					<PizzaVariantsList
+						value="1"
 						items={[
 							{ name: 'Small', value: '1' },
 							{ name: 'Medium', value: '2' },

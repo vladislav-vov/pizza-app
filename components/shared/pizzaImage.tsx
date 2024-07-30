@@ -1,11 +1,13 @@
 import { cn } from '@/lib/utils';
 
-interface ProductImageProps {
+import { PizzaSize } from '@/shared/constans/pizza';
+
+interface PizzaImageProps {
 	imageUrl: string;
-	size: number;
+	size: PizzaSize;
 }
 
-function ProductImage({ imageUrl, size }: ProductImageProps) {
+function PizzaImage({ imageUrl, size }: PizzaImageProps) {
 	return (
 		<div className="flex items-center justify-center flex-1 relative w-full">
 			<img
@@ -27,4 +29,4 @@ function ProductImage({ imageUrl, size }: ProductImageProps) {
 	);
 }
 
-export default ProductImage;
+export default PizzaImage;

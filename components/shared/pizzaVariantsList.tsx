@@ -2,24 +2,15 @@
 
 import { cn } from '@/lib/utils';
 
-type Variant = {
-	name: string;
-	value: string;
-	disabled?: boolean;
-};
+import { PizzaVariant } from '@/shared/constans/pizza';
 
-interface ChoosePizzaSizeProps {
-	items: readonly Variant[];
-	defaultValue?: string;
-	onClick?: (value: Variant['value']) => void;
-	selectedValue?: Variant['value'];
+interface PizzaVariantsListProps {
+	items: readonly PizzaVariant[];
+	onClick?: (value: PizzaVariant['value']) => void;
+	value?: PizzaVariant['value'];
 }
 
-function ChoosePizzaSize({
-	items,
-	onClick,
-	selectedValue,
-}: ChoosePizzaSizeProps) {
+function PizzaVariantsList({ items, onClick, value }: PizzaVariantsListProps) {
 	return (
 		<div className="flex justify-between bg-[#F3F3F7] rounded-3xl p-1 select-none">
 			{items.map((item) => (
@@ -28,7 +19,7 @@ function ChoosePizzaSize({
 					className={cn(
 						'flex items-center justify-center cursor-pointer h-[30px] px-5 flex-1 rounded-3xl transition-all duration-400 text-sm',
 						{
-							'bg-white shadow': item.value === selectedValue,
+							'bg-white shadow': item.value === value,
 							'text-gray-500 opacity-50 pointer-events-none': item.disabled,
 						}
 					)}
@@ -40,4 +31,4 @@ function ChoosePizzaSize({
 	);
 }
 
-export default ChoosePizzaSize;
+export default PizzaVariantsList;
