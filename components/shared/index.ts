@@ -21,3 +21,4 @@ export { default as CartDrawer } from './cartDrawer';
 export { default as CartDrawerItem } from './cartDrawerItem';
 export { default as CountButton } from './countButton';
 export { default as CartCount } from './cartCount';
+export { default as ProductForm } from './productForm';
