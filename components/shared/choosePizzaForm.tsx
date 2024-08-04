@@ -14,6 +14,7 @@ import { Button } from '../ui/button';
 import { Ingredient, ProductItem } from '@prisma/client';
 
 import { pizzaTypes, PizzaSize, PizzaType } from '@/shared/constans/pizza';
+import { AddProductType } from './modals/chooseProductModal';
 
 import {
 	pizzaDetailsToText,
@@ -26,7 +27,8 @@ interface ChoosePizzaFormProps {
 	name: string;
 	ingredients: Ingredient[];
 	items: ProductItem[];
-	onClickAdd?: VoidFunction;
+	loading: boolean;
+	onClickAdd: AddProductType;
 }
 
 function ChoosePizzaForm({
@@ -34,6 +36,7 @@ function ChoosePizzaForm({
 	items,
 	imageUrl,
 	ingredients,
+	loading,
 	onClickAdd,
 }: ChoosePizzaFormProps) {
 	const [size, setSize] = useState<PizzaSize>(20);
@@ -42,6 +45,10 @@ function ChoosePizzaForm({
 	const [selectedIngredients, { toggle: toggleIngredient }] = useSet(
 		new Set<number>([])
 	);
+
+	const currentItemId = items.find(
+		(item) => item.pizzaType === type && item.size === size
+	)?.id;
 
 	const details = pizzaDetailsToText(size, type);
 
@@ -54,6 +61,11 @@ function ChoosePizzaForm({
 	});
 
 	const availablePizzaSizes = getAvailablePizzaSizes({ type, items });
+
+	const onClick = () => {
+		if (currentItemId)
+			onClickAdd(currentItemId, Array.from(selectedIngredients));
+	};
 
 	useEffect(() => {
 		const availableSizes = availablePizzaSizes?.filter(
@@ -107,7 +119,10 @@ function ChoosePizzaForm({
 						))}
 					</div>
 				</div>
-				<Button className="h-[55px] px-10 text-base rounded-[18px] w-full mt-5">
+				<Button
+					loading={loading}
+					onClick={onClick}
+					className="h-[55px] px-10 text-base rounded-[18px] w-full mt-5">
 					Добавить в корзину за {totalPrice} ₽
 				</Button>
 			</div>

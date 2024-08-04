@@ -1,13 +1,21 @@
+'use client';
+
 import { ShoppingCart, ArrowRight } from 'lucide-react';
+
+import useCartStore from '@/store/cart';
 
 import { Button } from '../ui/button';
 import CartDrawer from './cartDrawer';
 
 function CartButton() {
+	const { items, totalAmount, loading } = useCartStore((state) => state);
+
 	return (
 		<CartDrawer>
-			<Button className="group relative">
-				<b>520 ₽</b>
+			<Button
+				loading={loading}
+				className="group relative">
+				<b>{totalAmount} ₽</b>
 				<span className="h-full w-[1px] bg-white/30 mx-3" />
 				<div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
 					<ShoppingCart
@@ -15,7 +23,7 @@ function CartButton() {
 						className="h-4 w-4 relative"
 						strokeWidth={2}
 					/>
-					<b>3</b>
+					<b>{items.length}</b>
 				</div>
 				<ArrowRight
 					size={20}

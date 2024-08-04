@@ -9,9 +9,11 @@ import ProductCard from './productCard';
 
 import { useCategoryStore } from '@/store/category';
 
+import { ProductWithRelations } from '@/@types/prisma';
+
 interface Props {
 	title: string;
-	products: any[];
+	products: ProductWithRelations[];
 	className?: string;
 	listClassName?: string;
 	categoryId: number;
@@ -32,8 +34,6 @@ function ProductsGroupList({
 	});
 
 	useEffect(() => {
-		console.log(intersection?.isIntersecting);
-
 		if (intersection?.isIntersecting) {
 			setActiveCategoryId(categoryId);
 		}
@@ -58,6 +58,7 @@ function ProductsGroupList({
 						name={product.name}
 						imageUrl={product.imageUrl}
 						price={product.items[0].price}
+						ingredients={product.ingredients}
 					/>
 				))}
 			</div>

@@ -18,3 +18,6 @@ export { default as ChoosePizzaForm } from './choosePizzaForm';
 export { default as IngredientItem } from './ingredientItem';
 export { default as CartButton } from './cartButton';
 export { default as CartDrawer } from './cartDrawer';
+export { default as CartDrawerItem } from './cartDrawerItem';
+export { default as CountButton } from './countButton';
+export { default as CartCount } from './cartCount';

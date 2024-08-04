@@ -1,4 +1,4 @@
-import prisma from '@/prisma/prismaCleint';
+import { Suspense } from 'react';
 
 import {
 	Container,
@@ -8,19 +8,16 @@ import {
 	ProductsGroupList,
 } from '@/components/shared';
 
-export default async function Home() {
-	const categories = await prisma.category.findMany({
-		include: {
-			products: {
-				include: {
-					ingredients: true,
-					items: true,
-				},
-			},
-		},
-	});
+import { findProductByFilter } from '@/utils';
 
-	console.log(categories);
+import { QueryFilters } from '@/hooks/useFilters';
+
+export default async function Home({
+	searchParams,
+}: {
+	searchParams: QueryFilters;
+}) {
+	const categories = await findProductByFilter(searchParams);
 
 	return (
 		<>
@@ -35,7 +32,9 @@ export default async function Home() {
 			<Container className="mt-10 pb-14">
 				<div className="flex gap-[60px]">
 					<div className="w-[250px]">
-						<Filters />
+						<Suspense>
+							<Filters />
+						</Suspense>
 					</div>
 					<div className="flex-1">
 						<div className="flex flex-col gap-16">

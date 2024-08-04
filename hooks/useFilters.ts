@@ -7,7 +7,7 @@ interface PriceRange {
 	priceTo?: number;
 }
 
-interface QueryFilters extends PriceRange {
+export interface QueryFilters extends PriceRange {
 	pizzaTypes: string;
 	sizes: string;
 	ingredients: string;

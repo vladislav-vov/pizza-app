@@ -1,3 +1,9 @@
 export { default as pizzaDetailsToText } from './pizzaDetailsToText';
 export { default as calcTotalPizzaPrice } from './calcTotalPizzaPrice';
 export { default as getAvailablePizzaSizes } from './getAvailablePizzaSizes';
+export { default as cartItemDetailsToText } from './cartItemDetailsToText';
+export { default as transformCartResponse } from './transformCartResponse';
+export { default as calcCartItemTotalPrice } from './calcCartItemTotalPrice';
+export { default as updateCartTotalAmount } from './updateCartTotalAmount';
+export { default as findOrCreateCart } from './findOrCreateCart';
+export { default as findProductByFilter } from './findProductByFilter';
