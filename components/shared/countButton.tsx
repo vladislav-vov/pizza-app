@@ -21,6 +21,7 @@ function CountButton({
 }: CountButtonProps) {
 	return (
 		<Button
+			type="button"
 			variant="outline"
 			disabled={disabled}
 			onClick={onClick}

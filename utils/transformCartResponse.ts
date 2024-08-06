@@ -20,9 +20,9 @@ interface TransformCartResponseReturnProps {
 }
 
 export default function transformCartResponse(
-	data: CartDTO
-): TransformCartResponseReturnProps {
-	console.log(data);
+	data: CartDTO | null
+): TransformCartResponseReturnProps | [] {
+	if (!data) return [];
 
 	const items: TransformedCartResponse[] = data.items.map((item) => ({
 		id: item.id,

@@ -7,7 +7,6 @@ import { CartCount } from '@/components/shared';
 import { CountButtonType } from './countButton';
 
 interface CartDrawerItemProps {
-	id: number;
 	imageUrl: string;
 	name: string;
 	price: number;
@@ -17,8 +16,7 @@ interface CartDrawerItemProps {
 	onClickRemove: () => void;
 }
 
-function CartDrawerItem({
-	id,
+function CartItem({
 	imageUrl,
 	name,
 	price,
@@ -60,4 +58,4 @@ function CartDrawerItem({
 	);
 }
 
-export default CartDrawerItem;
+export default CartItem;

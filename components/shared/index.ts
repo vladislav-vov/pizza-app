@@ -18,7 +18,17 @@ export { default as ChoosePizzaForm } from './choosePizzaForm';
 export { default as IngredientItem } from './ingredientItem';
 export { default as CartButton } from './cartButton';
 export { default as CartDrawer } from './cartDrawer';
-export { default as CartDrawerItem } from './cartDrawerItem';
+export { default as CartItem } from './cartItem';
 export { default as CountButton } from './countButton';
 export { default as CartCount } from './cartCount';
 export { default as ProductForm } from './productForm';
+export { default as WhiteBlock } from './whiteBlock';
+export { default as CheckoutItemDetails } from './checkoutItemDetails';
+export { default as CheckoutSidebar } from './checkoutSidebar';
+export { default as ErrorText } from './errorText';
+export { default as ClearButton } from './clearButton';
+export { default as RequiredSymbol } from './requiredSymbol';
+export { default as AddressInput } from './addressInput';
+export { default as Providers } from './providers';
+
+export * from './form';

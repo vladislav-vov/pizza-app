@@ -7,3 +7,4 @@ export { default as calcCartItemTotalPrice } from './calcCartItemTotalPrice';
 export { default as updateCartTotalAmount } from './updateCartTotalAmount';
 export { default as findOrCreateCart } from './findOrCreateCart';
 export { default as findProductByFilter } from './findProductByFilter';
+export { checkoutFormSchema } from './checkoutFormSchema';
